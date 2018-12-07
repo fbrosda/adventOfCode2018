@@ -7,6 +7,7 @@ import adventOfCode.day01.ChronalCalibration
 import adventOfCode.day02.InventoryManagement
 import adventOfCode.day03.SantaSuite
 import adventOfCode.day04.SleepingGuard
+import adventOfCode.day05.Alchemy
 
 class App {
     static void main(String[] args) {
@@ -23,7 +24,10 @@ class App {
         // def day03 = new SantaSuite()
         // day03.printSolutions()
 
-        def day04 = new SleepingGuard()
-        day04.printSolutions()
+        // def day04 = new SleepingGuard()
+        // day04.printSolutions()
+
+        def day05 = new Alchemy()
+        day05.printSolutions()
     }
 }
