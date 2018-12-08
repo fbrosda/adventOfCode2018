@@ -9,6 +9,8 @@ import adventOfCode.day03.SantaSuite
 import adventOfCode.day04.SleepingGuard
 import adventOfCode.day05.Alchemy
 
+import adventOfCode.day07.DAG
+
 class App {
     static void main(String[] args) {
         println '##################'
@@ -27,7 +29,10 @@ class App {
         // def day04 = new SleepingGuard()
         // day04.printSolutions()
 
-        def day05 = new Alchemy()
-        day05.printSolutions()
+        // def day05 = new Alchemy()
+        // day05.printSolutions()
+
+        def day07 = new DAG()
+        day07.printSolutions()
     }
 }
