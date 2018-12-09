@@ -49,6 +49,9 @@ class Work implements Comparable<Work> {
     }
 
     int compareTo(Work n) {
-        id <=> n.id
+        if(predecessors.size() == n.predecessors.size()) {
+            return id <=> n.id
+        }
+        return predecessors.size() <=> n.predecessors.size()
     }
 }

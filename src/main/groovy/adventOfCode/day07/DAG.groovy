@@ -6,13 +6,11 @@ import adventOfCode.day07.Worker
 
 class DAG extends AbstractChallange {
 
-    List<Work> works;
-
     DAG() {
         day = 7
     }
 
-    private void createGraph() {
+    private List<Work> createGraph() {
         def tmp = [:].withDefault { key -> new Work(key) }
         data.each{ line ->
             def ids = (line =~ /^Step\s(\w)[^A-Z]+([A-Z]).*$/).getAt(0).drop(1)
@@ -22,28 +20,28 @@ class DAG extends AbstractChallange {
             suc.addPredecessor(pre)
 
         }
-        works = tmp.values() as List
+        return tmp.values() as List
     }
 
-    private PriorityQueue<Work> getTaskQueue() {
+    private PriorityQueue<Work> getTaskQueue(List allTasks) {
         def queue = new PriorityQueue<Work>()
         
-        queue.addAll(works.findAll { it.nrOfPredesessors() == 0 })
+        queue.addAll(allTasks.findAll { it.nrOfPredesessors() == 0 })
         return queue
     }
 
     String solution1() {
-        createGraph()
-        def queue = getTaskQueue()
+        def allTasks = createGraph()
+        def openTasks = getTaskQueue(allTasks)
         def ret = []
 
-        while(queue.size() > 0) {
-            def work = queue.poll()
-            ret << work.id
-            work.getSuccessors().each { suc ->
-                def preCount = suc.removePredecessor(work)
+        while(openTasks.size() > 0) {
+            def task = openTasks.poll()
+            ret << task.id
+            task.getSuccessors().each { suc ->
+                def preCount = suc.removePredecessor(task)
                 if(preCount == 0) {
-                    queue.add(suc)
+                    openTasks.add(suc)
                 }
             }
         }
@@ -51,36 +49,36 @@ class DAG extends AbstractChallange {
     }
 
     String solution2() {
-        createGraph()
-        def queue = getTaskQueue()
-        def workers = (1..5).collect{ new Worker() }
+        def allTasks = createGraph()
+        def openTasks = getTaskQueue(allTasks)
+        def workers = (1..5).collect{ new Worker(it) }
         def ret = 0
-        def step = 0
 
-        while(queue.size() > 0) {
+        while(true) {
+            def busyWorkers = workers.findAll{ it.isBusy() }
+            def xx = busyWorkers.min{ it.time }
+            def step = xx ? xx.time : 0
+            def finished = busyWorkers.each{ it.reduceTime(step) }.collect{ it.releaseWork() }.findAll()
             ret += step
-            workers.findAll{ it.isBusy() }.each{ it.time -= step }
-            def finished = workers.findAll{ it.hasWork() && !it.isBusy() }
-            finished.each { worker ->
-                def work = worker.work
-                queue.remove(work)
-                worker.work = null
-                
+
+            finished.each { work ->
                 work.getSuccessors().each { suc ->
                     def preCount = suc.removePredecessor(work)
                     if(preCount == 0) {
-                        queue.add(suc)
+                        openTasks.add(suc)
                     }
                 }
             }
-            
+
             def free = workers.findAll { !it.isBusy() }
-            def unassigned = queue.findAll { !it.isAssigned }
-            for(def i = 0; i < free.size() && i < unassigned.size(); i++) {
-                free[i].acceptWork(unassigned[i])
+            free.each{ worker ->
+                def task = openTasks.poll()
+                if(task) {
+                    worker.acceptWork(task)
+                }
             }
-            def xx = workers.findAll{ it.isBusy() }.min { it.time }
-            if( xx ) step = xx.time
+
+            if(!workers.findAll{ it.isBusy() }) break
         }
 
         return ret
