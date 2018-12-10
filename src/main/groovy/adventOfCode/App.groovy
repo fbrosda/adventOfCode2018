@@ -12,6 +12,7 @@ import adventOfCode.day05.Alchemy
 import adventOfCode.day07.DAG
 import adventOfCode.day08.LicenceTree
 import adventOfCode.day09.MarbleGame
+import adventOfCode.day10.StarLetters
 
 class App {
     static void main(String[] args) {
@@ -41,7 +42,10 @@ class App {
         // def day08 = new LicenceTree()
         // day08.printSolutions()
 
-        def day09 = new MarbleGame()
-        day09.printSolutions()
+        // def day09 = new MarbleGame()
+        // day09.printSolutions()
+
+        def day10 = new StarLetters()
+        day10.printSolutions()
     }
 }
