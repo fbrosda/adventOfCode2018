@@ -17,10 +17,20 @@ class StarLetters extends AbstractChallange {
     }
 
     private void fastForward() {
-       while(Math.abs(stars.max{ it.y }.y - stars.min{ it.y }.y) > 9) {
+        // The stars only move linear, so there must be a globla minimum somewhere
+        def cur = Integer.MAX_VALUE
+        def next = nextDist()
+        while(next < cur) {
             stars.each{ it.move() }
             time++
+
+            cur = next
+            next = nextDist()
         }
+    }
+
+    private int nextDist() {
+        Math.abs(stars.max{ it.y + it.velY }.y - stars.min{ it.y + it.velY}.y)
     }
 
     private String printStars() {
