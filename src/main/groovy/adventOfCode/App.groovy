@@ -8,7 +8,7 @@ import adventOfCode.day02.InventoryManagement
 import adventOfCode.day03.SantaSuite
 import adventOfCode.day04.SleepingGuard
 import adventOfCode.day05.Alchemy
-
+import adventOfCode.day06.ChronalCoordinates
 import adventOfCode.day07.DAG
 import adventOfCode.day08.LicenceTree
 import adventOfCode.day09.MarbleGame
@@ -22,7 +22,7 @@ class App {
 
         // def day01 = new ChronalCalibration()
         // day01.printSolutions()
-        
+
         // def day02 = new InventoryManagement()
         // day02.printSolutions()
 
@@ -35,7 +35,9 @@ class App {
         // def day05 = new Alchemy()
         // day05.printSolutions()
 
-        
+        def day06 = new ChronalCoordinates()
+        day06.printSolutions()
+
         // def day07 = new DAG()
         // day07.printSolutions()
 
@@ -45,7 +47,7 @@ class App {
         // def day09 = new MarbleGame()
         // day09.printSolutions()
 
-        def day10 = new StarLetters()
-        day10.printSolutions()
+        // def day10 = new StarLetters()
+        // day10.printSolutions()
     }
 }
