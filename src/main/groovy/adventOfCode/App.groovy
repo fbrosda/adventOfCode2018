@@ -13,6 +13,7 @@ import adventOfCode.day07.DAG
 import adventOfCode.day08.LicenceTree
 import adventOfCode.day09.MarbleGame
 import adventOfCode.day10.StarLetters
+import adventOfCode.day11.PowerLevel
 
 class App {
     static void main(String[] args) {
@@ -35,8 +36,8 @@ class App {
         // def day05 = new Alchemy()
         // day05.printSolutions()
 
-        def day06 = new ChronalCoordinates()
-        day06.printSolutions()
+        // def day06 = new ChronalCoordinates()
+        // day06.printSolutions()
 
         // def day07 = new DAG()
         // day07.printSolutions()
@@ -49,5 +50,8 @@ class App {
 
         // def day10 = new StarLetters()
         // day10.printSolutions()
+
+        def day11 = new PowerLevel()
+        day11.printSolutions()
     }
 }

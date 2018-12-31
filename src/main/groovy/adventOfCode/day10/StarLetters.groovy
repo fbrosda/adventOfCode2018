@@ -6,7 +6,7 @@ import adventOfCode.day10.Point
 class StarLetters extends AbstractChallange {
     List<Point> stars
     int time = 0
-    
+
     StarLetters() {
         day = 10
 
@@ -43,7 +43,7 @@ class StarLetters extends AbstractChallange {
         }
         return "\n${ret.collect { it.join('') }.join('\n')}"
     }
-    
+
     String solution1() {
         fastForward()
         return printStars()
