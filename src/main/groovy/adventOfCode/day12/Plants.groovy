@@ -50,10 +50,10 @@ class Plants extends AbstractChallange {
                     def last = first + (rest % len)
 
                     def firstOffset = offsetMemo.get(first)
-                    def remOffset = Math.abs(offsetMemo.get((int) last) - firstOffset)
-                    def offsetDiff = Math.abs(offset - firstOffset)
+                    def remOffset = offsetMemo.get((int) last) - firstOffset
+                    def offsetDiff = offset - firstOffset
 
-                    offset = offset - rem * offsetDiff - remOffset
+                    offset = offset + rem * offsetDiff + remOffset
                     return memo.find { it.value == last }
                 }
             }
