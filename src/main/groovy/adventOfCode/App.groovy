@@ -15,6 +15,7 @@ import adventOfCode.day09.MarbleGame
 import adventOfCode.day10.StarLetters
 import adventOfCode.day11.PowerLevel
 import adventOfCode.day12.Plants
+import adventOfCode.day13.CartMadness
 
 class App {
     static void main(String[] args) {
@@ -55,8 +56,10 @@ class App {
         // def day11 = new PowerLevel()
         // day11.printSolutions()
 
-        def day12 = new Plants()
-        day12.printSolutions()
+        // def day12 = new Plants()
+        // day12.printSolutions()
 
+        def day13 = new CartMadness()
+        day13.printSolutions()
     }
 }
