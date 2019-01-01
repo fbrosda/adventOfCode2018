@@ -78,7 +78,7 @@ class CartMadness extends AbstractChallange {
     }
 
     String solution1() {
-        while(!tick()) { }
+        while(!tick());
         return allCarts.find { it.isDead }.position
     }
 
