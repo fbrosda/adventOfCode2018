@@ -16,6 +16,7 @@ import adventOfCode.day10.StarLetters
 import adventOfCode.day11.PowerLevel
 import adventOfCode.day12.Plants
 import adventOfCode.day13.CartMadness
+import adventOfCode.day14.Recipes
 
 class App {
     static void main(String[] args) {
@@ -59,7 +60,10 @@ class App {
         // def day12 = new Plants()
         // day12.printSolutions()
 
-        def day13 = new CartMadness()
-        day13.printSolutions()
+        // def day13 = new CartMadness()
+        // day13.printSolutions()
+
+        def day14 = new Recipes()
+        day14.printSolutions()
     }
 }
