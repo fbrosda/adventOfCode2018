@@ -18,6 +18,8 @@ import adventOfCode.day12.Plants
 import adventOfCode.day13.CartMadness
 import adventOfCode.day14.Recipes
 
+import adventOfCode.day16.ChronalClassification
+
 class App {
     static void main(String[] args) {
         println '##################'
@@ -63,7 +65,13 @@ class App {
         // def day13 = new CartMadness()
         // day13.printSolutions()
 
-        def day14 = new Recipes()
-        day14.printSolutions()
+        // def day14 = new Recipes()
+        // day14.printSolutions()
+
+        // def day15 = new Recipes()
+        // day15.printSolutions()
+
+        def day16 = new ChronalClassification()
+        day16.printSolutions()
     }
 }
