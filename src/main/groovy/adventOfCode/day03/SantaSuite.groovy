@@ -4,7 +4,7 @@ import adventOfCode.util.AbstractChallange
 
 class SantaSuite extends AbstractChallange {
     private List<Rectangle> rectangles
-    
+
     SantaSuite() {
         day = 3
         rectangles = parseData()
