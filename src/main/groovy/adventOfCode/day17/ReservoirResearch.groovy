@@ -134,7 +134,7 @@ class ReservoirResearch extends AbstractChallange {
                     x += cell =~ typeRX ? 1 : 0
                 }
             }
-            y
+            return y
         }
     }
 
