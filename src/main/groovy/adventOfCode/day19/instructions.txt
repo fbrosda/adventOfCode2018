@@ -1,0 +1,36 @@
+addi 5 16 5    ip <- 16
+seti 1 5 3     r3 <- 1
+seti 1 4 2     r2 <- 1        --- Start Outer Loop
+mulr 3 2 4     r4 <- r3 * r2  --- Start Loop
+eqrr 4 1 4     r4 <- r4 = r1
+addr 4 5 5     ip <- r4 + 5
+addi 5 1 5     ip <- ip + 1
+addr 3 0 0     r0 <- r3 + r0
+addi 2 1 2     r2 <- r2 + 1
+gtrr 2 1 4     r4 <- r2 > r1
+addr 5 4 5     ip <- r4 + 10
+seti 2 2 5     ip <- 2        --- End Loop
+addi 3 1 3     r3 <- r3 + 1
+gtrr 3 1 4     r4 <- r3 > r1
+addr 4 5 5     ip <- r4 + 14
+seti 1 0 5     ip <- 1        --- End Outer Loop
+mulr 5 5 5     ip <- 16 * 16  --- Program End
+addi 1 2 1     r1 <- r1 + 2   --- Setup Code
+mulr 1 1 1     r1 <- r1 * r1
+mulr 5 1 1     r1 <- 19 * r1
+muli 1 11 1    r1 <- r1 * 11
+addi 4 1 4     r4 <- r4 + 1
+mulr 4 5 4     r4 <- r4 * 22
+addi 4 9 4     r4 <- r4 + 9
+addr 1 4 1     r1 <- r1 + r4
+addr 5 0 5     ip <- r0 + 25  --- Decide how big the numbers should be (part1/part2)
+seti 0 5 5     ip <- 0
+setr 5 6 4     r4 <- 27
+mulr 4 5 4     r4 <- r4 * 28
+addr 5 4 4     r4 <- 29 + r4
+mulr 5 4 4     r4 <- 30 * r4
+muli 4 14 4    r4 <- r4 * 14
+mulr 4 5 4     r4 <- r4 * 32
+addr 1 4 1     r1 <- r1 + r4
+seti 0 3 0     r0 <- 0
+seti 0 1 5     ip <- 0        --- Start the actual alorithm up at the top

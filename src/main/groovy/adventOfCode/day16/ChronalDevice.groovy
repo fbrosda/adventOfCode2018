@@ -5,29 +5,60 @@ import adventOfCode.day16.Opcode
 class ChronalDevice {
     private Map<Integer, Opcode> int2opcode
     private List<Integer> registers
+    private int ipr
+
     int sol1
 
     ChronalDevice() {
         int2opcode = [:]
-        registers = [0, 0, 0, 0]
-    }
-
-    ChronalDevice(registers) {
-        int2opcode = [:]
-        this.registers = registers
+        registers = [0, 0, 0, 0, 0, 0, 0]
+        ipr = 6 // hidden register which will never be modified by the code
     }
 
     public void resetRegisters() {
-        registers = [0, 0, 0, 0]
+        registers = [0, 0, 0, 0, 0, 0, 0]
     }
 
     public List getRegisters() {
         registers
     }
 
-    public void exec(List<Instruction> instructions) {
-        instructions.each {
-            int2opcode.get(it.code).apply(it.args, registers)
+    public void setRegisters(registers) {
+        this.registers = registers
+        while(registers.size() < 7) {
+            registers << 0
+        }
+    }
+
+    public void exec(List<Instruction> instructions, raw = true) {
+        def i = 0
+        if(raw) {
+            assert int2opcode.size() == Opcode.values().size() // make sure the mapping is initialized
+        }
+
+        if(instructions[0].name?.startsWith('#IP')) {
+            ipr = instructions.pop().args[0]
+        }
+
+        while(registers[ipr] < instructions.size()) {
+            i++
+            def opcode
+            def instruction = instructions[registers[ipr]]
+            println registers
+            println instruction
+
+            if(raw) {
+                opcode = int2opcode.get(instruction.code)
+            } else {
+                opcode = instruction.name as Opcode
+            }
+
+            opcode.apply(instruction.args, registers)
+            registers[ipr]++
+            println registers
+            println ''
+            if(i > 1000)
+                break
         }
     }
 

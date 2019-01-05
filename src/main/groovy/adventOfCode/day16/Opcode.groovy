@@ -31,13 +31,13 @@ enum Opcode {
     }
 
     public void apply(int a, int b, int c, List registers) {
-        assert registers.size() == 4
+        assert registers.size() == 7
         registers[c] = op.call(a, b, registers)
     }
 
     public void apply(List args, List registers) {
         assert args.size() == 3
-        assert registers.size() == 4
+        assert registers.size() == 7
 
         registers[args[2]] = op.call(args[0], args[1], registers)
     }

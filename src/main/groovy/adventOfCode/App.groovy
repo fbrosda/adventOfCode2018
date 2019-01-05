@@ -21,6 +21,7 @@ import adventOfCode.day14.Recipes
 import adventOfCode.day16.ChronalClassification
 import adventOfCode.day17.ReservoirResearch
 import adventOfCode.day18.Lumberyard
+import adventOfCode.day19.InstructionPointer
 
 class App {
     static void main(String[] args) {
@@ -79,7 +80,10 @@ class App {
         // def day17 = new ReservoirResearch()
         // day17.printSolutions()
 
-        def day18 = new Lumberyard()
-        day18.printSolutions()
+        // def day18 = new Lumberyard()
+        // day18.printSolutions()
+
+        def day19 = new InstructionPointer()
+        day19.printSolutions()
     }
 }
