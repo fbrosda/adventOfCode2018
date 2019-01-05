@@ -12,23 +12,16 @@ plugins {
 }
 
 repositories {
-    // Use jcenter for resolving your dependencies.
-    // You can declare any Maven/Ivy/file repository here.
     jcenter()
 }
 
 dependencies {
-    // Use the latest Groovy version for building this library
     implementation 'org.codehaus.groovy:groovy-all:2.5.4'
-
-    // Math support
     implementation 'org.apache.commons:commons-math3:3.6.1'
+    implementation 'org.jgrapht:jgrapht-core:1.3.0'
 
-    // Use the awesome Spock testing and specification framework
     testImplementation 'org.spockframework:spock-core:1.2-groovy-2.5'
 }
 
-// Define the main class for the application
 mainClassName = 'adventOfCode.App'
-
 applicationDefaultJvmArgs = ["-Xss4M"]

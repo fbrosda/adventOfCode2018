@@ -31,7 +31,6 @@ class ChronalDevice {
     }
 
     public void exec(List<Instruction> instructions, raw = true) {
-        def i = 0
         if(raw) {
             assert int2opcode.size() == Opcode.values().size() // make sure the mapping is initialized
         }
@@ -41,11 +40,8 @@ class ChronalDevice {
         }
 
         while(registers[ipr] < instructions.size()) {
-            i++
             def opcode
             def instruction = instructions[registers[ipr]]
-            println registers
-            println instruction
 
             if(raw) {
                 opcode = int2opcode.get(instruction.code)
@@ -55,10 +51,6 @@ class ChronalDevice {
 
             opcode.apply(instruction.args, registers)
             registers[ipr]++
-            println registers
-            println ''
-            if(i > 1000)
-                break
         }
     }
 

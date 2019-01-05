@@ -1,6 +1,7 @@
 package adventOfCode.day19
 
 import adventOfCode.util.AbstractChallange
+import adventOfCode.day19.Reverse
 import adventOfCode.day16.ChronalDevice
 import adventOfCode.day16.Instruction
 
@@ -20,14 +21,11 @@ class InstructionPointer extends AbstractChallange {
     }
 
     String solution1() {
-        // cd.exec(instructions, false)
-        // cd.getRegisters()
+        cd.exec(instructions, false)
+        cd.getRegisters()
     }
 
     String solution2() {
-        cd.resetRegisters()
-        cd.setRegisters([1])
-        cd.exec(instructions, false)
-        cd.getRegisters()
+        Reverse.execOptimized(1)
     }
 }
