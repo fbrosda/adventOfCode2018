@@ -84,8 +84,8 @@ class App {
         // def day18 = new Lumberyard()
         // day18.printSolutions()
 
-        def day19 = new InstructionPointer()
-        day19.printSolutions()
+        // def day19 = new InstructionPointer()
+        // day19.printSolutions()
 
         def day20 = new RegularMap()
         day20.printSolutions()
