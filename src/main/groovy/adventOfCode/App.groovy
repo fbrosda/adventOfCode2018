@@ -23,6 +23,7 @@ import adventOfCode.day17.ReservoirResearch
 import adventOfCode.day18.Lumberyard
 import adventOfCode.day19.InstructionPointer
 import adventOfCode.day20.RegularMap
+import adventOfCode.day21.ChronalConversion
 
 class App {
     static void main(String[] args) {
@@ -87,7 +88,10 @@ class App {
         // def day19 = new InstructionPointer()
         // day19.printSolutions()
 
-        def day20 = new RegularMap()
-        day20.printSolutions()
+        // def day20 = new RegularMap()
+        // day20.printSolutions()
+
+        def day21 = new ChronalConversion()
+        day21.printSolutions()
     }
 }
