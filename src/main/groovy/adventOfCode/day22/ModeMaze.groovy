@@ -38,14 +38,12 @@ class ModeMaze extends AbstractChallange {
 
         maze = [].withDefault { y ->
             [].withDefault { x ->
-                if(x == 0 && y == 0) {
-                    return (0 + depth) % 20183
+                if((x == 0 && y == 0) || (x == target[0] && y == target[1])) {
+                    return depth % 20183
                 } else if(x == 0) {
                     return ((y*48271) + depth) % 20183
                 } else if(y == 0) {
                     return ((x*16807) + depth) % 20183
-                } else if(x == target[0] && y == target[1]) {
-                    return 0
                 } else {
                     return ((maze[y][x-1] * maze[y-1][x]) + depth) % 20183
                 }
