@@ -68,9 +68,7 @@ class ModeMaze extends AbstractChallange {
         def ret = 0
         (0..yMax).each { y ->
             (0..xMax).each { x ->
-                if(x != xMax || y != yMax) {
-                    ret += getType(x, y).ordinal()
-                }
+                ret += getType(x, y).ordinal()
             }
         }
         return ret
