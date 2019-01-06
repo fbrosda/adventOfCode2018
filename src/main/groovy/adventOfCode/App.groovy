@@ -24,6 +24,7 @@ import adventOfCode.day18.Lumberyard
 import adventOfCode.day19.InstructionPointer
 import adventOfCode.day20.RegularMap
 import adventOfCode.day21.ChronalConversion
+import adventOfCode.day22.ModeMaze
 
 class App {
     static void main(String[] args) {
@@ -91,7 +92,10 @@ class App {
         // def day20 = new RegularMap()
         // day20.printSolutions()
 
-        def day21 = new ChronalConversion()
-        day21.printSolutions()
+        // def day21 = new ChronalConversion()
+        // day21.printSolutions()
+
+        def day22 = new ModeMaze()
+        day22.printSolutions()
     }
 }
