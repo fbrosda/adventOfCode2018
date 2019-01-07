@@ -25,6 +25,7 @@ import adventOfCode.day19.InstructionPointer
 import adventOfCode.day20.RegularMap
 import adventOfCode.day21.ChronalConversion
 import adventOfCode.day22.ModeMaze
+import adventOfCode.day23.Nanobots
 
 class App {
     static void main(String[] args) {
@@ -95,7 +96,10 @@ class App {
         // def day21 = new ChronalConversion()
         // day21.printSolutions()
 
-        def day22 = new ModeMaze()
-        day22.printSolutions()
+        // def day22 = new ModeMaze()
+        // day22.printSolutions()
+
+        def day23 = new Nanobots()
+        day23.printSolutions()
     }
 }
